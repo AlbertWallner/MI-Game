@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div class="page">
+
+    <ul>
+
+      <li id='lvlSelection'>Level Selection</li>
+      <li>Scores</li>
+    </ul>
+    <div class="mainContainer">
+      <div class="pane">
+        <div class="header">
+          <img src="Bilder/strenght.svg" alt="">
+          <p>Survival</p>
+        </div>
+        <div class="window" id='survival'>
+          <video autoplay muted loop>
+            <source src="Videos/gravity.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="header">
+          <img src="Bilder/puzzle.svg" alt="">
+          <p>Puzzle</p>
+        </div>
+        <div class="window" id='puzzle'>
+          <video autoplay muted loop>
+            <source src="Videos/snake.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="header">
+          <img src="Bilder/Star.svg" alt="">
+          
+        </div>
+        <div class="window"id='parkour'>
+          <video autoplay muted loop>
+            <source src="Videos/starshower.mp4" type="video/mp4">
+          </video>
+      </div>
+
+      </div>
+      <div class="pane">
+        <div class="header">
+          <img src="Bilder/fairy-tale.svg" alt="">
+          <p>Story</p>
+        </div>
+        <div class="window" id='story'>
+          <video autoplay muted loop>
+            <source src="Videos/bowser (2).mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <img src="Bilder/open-book.svg" alt="Book" id='bookImage'>
+    </div>
+  </div>
+  <script src='p5.js'></script>
+  <script src="p5.sound.js" charset="utf-8"></script>
+  <script src="Level4/Ball.js" charset="utf-8"></script>
+  <script src="Level4/level4.js" charset="utf-8"></script>
+  <script src="Level3/Spark.js" charset="utf-8"></script>
+  <script src="Level3/BallN.js" charset="utf-8"></script>
+  <script src="Level3/Particle.js" charset="utf-8"></script>
+  <script src="Level3/level3.js" charset="utf-8"></script>
+  <script src="Level3/Platform.js" charset="utf-8"></script>
+  <script src="Level1/level1.js" charset="utf-8"></script>
+  <script src="Level1/Ball.js" charset="utf-8"></script>
+  <script src="Level2/starshower.js" charset="utf-8"></script>
+  <script src="Level2/Star.js" charset="utf-8"></script>
+  <script src="Level2/Pyramid.js" charset="utf-8"></script>
+  <script src="jquery-3.4.1.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
