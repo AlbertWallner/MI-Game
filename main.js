@@ -3,14 +3,18 @@
   //Wichtig für die ID vergabe später
   let $currentPane = $('.pane:first')
   let $book = $('#bookImage');
+  $book.hide();
   let $allPanes = $('.pane');
   //Dimensionen vom Canvas
   let lwindowWidth;
   let lwindowHeight;
   //thisPane beszieht sich auf das aktuell ausgewählte Level
   let thisPane;
-  //Level Selection Button
+  //Level Selection Button und Score
   let $levelSelection = $('#lvlSelection');
+  let $scoreDiv = $levelSelection.next();
+  let $listEl = $('li');
+  $listEl.hide();
   //Variablen zur speicherung von den Positionen der Panes (Damit man diese am Ende wieder repositionieren kann)
   let currentLeft;
   let currentTop;
@@ -106,12 +110,12 @@
     });
   }
 
+  // $scoreDiv.click(function(){
+  //   console.log()
+  // })
 
-  function preload() {
-    img = loadImage('Bilder/Star.svg')
-    song = loadSound('Sounds/song.mp3');
-    fahrstuhlmusik = loadSound('Sounds/Fahrstuhl.mp3');
-
+  //Fügt Sounds hinzu (in der Preload Funktion)
+  function createSounds(){
     //Sounds
     selectionSound = new p5.Oscillator();
     selectionSoundEnv = new p5.Envelope();
@@ -136,6 +140,18 @@
     gettingHitSound.amp(gettingHitEnv);
     gettingHitSound.freq(50);
     gettingHitSound.start();
+  }
+
+  function preload() {
+    song = loadSound('Sounds/song.mp3');
+    fahrstuhlmusik = loadSound('Sounds/Fahrstuhl.mp3');
+    createSounds();
+
+  }
+
+  function setup(){
+    $book.fadeIn(500);
+    $listEl.fadeIn(500);
   }
 
   function FahrStuhlMusikStart(){
