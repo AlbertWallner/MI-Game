@@ -23,7 +23,7 @@ function level4setup(){
   }
   thisTime = millis();
   started = true;
-  
+  ellipseMode(CENTER);
 }
 
 function level4draw(){

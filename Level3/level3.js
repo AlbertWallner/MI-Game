@@ -68,7 +68,7 @@ function level3draw() {
     //millis() sorgt dafür,dass man 2 Sekunden Zeit hat,bevor man sterben kann
     //Wenn man verliert,dann folgt ein hard resett
     if (isDead() && millis()-gameStartTime > 2000) {
-      alert('dead');
+      
       backgroundC = 255;
       for (var i = 0; i < ballArray.length; i++) {
         ballArray[i].subCircles = [];

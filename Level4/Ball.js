@@ -61,7 +61,8 @@ function Level4Ball(){
   }
   //Prüft,ob die Maus über einem Ball ist (wenn man getroffen wurde)
   this.isDead = function(){
-    if (dist(this.pos.x,this.pos.y,mouseX,mouseY)<this.radius/2) {
+    
+    if (dist(this.pos.x,this.pos.y,mouseX,mouseY)<=this.radius/2) {
       return true;
 
     }

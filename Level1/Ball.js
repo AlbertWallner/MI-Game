@@ -13,7 +13,7 @@ function Ball(x,y,radius){
     strokeWeight(5);
     ellipse(this.x,this.y,this.radius,this.radius);
     if (dist(mouseX,mouseY,this.x,this.y)<=this.radius) {
-      alert('Game Over');
+    
     }
   }
   this.update = function(){
