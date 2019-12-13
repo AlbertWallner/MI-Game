@@ -5,6 +5,7 @@
 }
 :root{
   --main-border-radius: 20px;
+  --main-text-color: #5D647F;
 }
 body{
   font-family: 'Roboto', sans-serif;
@@ -42,7 +43,7 @@ video:hover{
   width: 100vw;
   height: 100vh;
 }
-ul{
+ul#navs{
   display:flex;
   flex-direction: row;
   list-style-type: none;
@@ -54,26 +55,73 @@ ul{
   height: 10%;
 }
 
-li{
+.navsLi{
   padding: 1% 5%;
   border: 1px solid grey;
   box-shadow: 0 0 1px 0px;
   border-radius: 0px;
   margin: 0px 20px;
 }
-li:hover{
+.navsLi:hover{
   box-shadow: 0 0 5px;
   transform: scale(0.98);
   cursor: pointer;
 }
-li:active{
+.navsLi:active{
   transform: scale(0.9);
 }
 .mainContainer{
   width: 100%;
   height:90%;
   position: relative;
-  
+}
+#scoreBoard{
+  position: absolute;
+  display:flex;
+  width: 33%;
+  height: 90%;
+  background-color: #FFEBB7;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  list-style-type: none;
+  border: 1px solid grey;
+}
+#scoreBoard:hover{
+  box-shadow: 0 0 5px ;
+}
+.scoreImagesPane{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+}
+.leftScorePane{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  color: var(--main-text-color);
+}
+.leftScorePane:last-of-type{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: normal;
+  color: var(--main-text-color);
+}
+
+.scoreImg{
+  width: 30%;
+  height:10%;
 }
 #bookImage{
   width: 20%;

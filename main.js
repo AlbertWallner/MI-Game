@@ -29,6 +29,11 @@
   let gettingHitSound;
   let gettingHitEnv;
 
+
+  //Scores
+  let $scoreBoard = $('#scoreBoard');
+  $scoreBoard.hide();
+
   //Videos
   let $myVideos = $('video');
 
@@ -111,7 +116,19 @@
   }
 
   $scoreDiv.click(function(){
-    
+    if (!isSomethingActive) {
+      isSomethingActive = true;
+      $book.hide();
+      $allPanes.hide();
+      $scoreBoard.fadeIn(1000);
+    }
+    else {
+      isSomethingActive = false;
+      $scoreBoard.fadeOut(1000);
+      $book.fadeIn(1000);
+      $allPanes.fadeIn(1000);
+
+    }
   })
 
   //Fügt Sounds hinzu (in der Preload Funktion)

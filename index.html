@@ -11,13 +11,38 @@
 <body>
   <div class="page">
 
-    <ul>
+    <ul id='navs'>
 
-      <li id='lvlSelection'>Level Selection</li>
-      <li>Scores</li>
+      <li id='lvlSelection' class='navsLi'>Level Selection</li>
+      <li class='navsLi'>Scores</li>
     </ul>
-    
+
     <div class="mainContainer">
+      <ul id='scoreBoard'>
+        <div class="scoreImagesPane">
+          <img src="Bilder/Star.svg" class='scoreImg'>
+          <img src="Bilder/strenght.svg" class='scoreImg'>
+          <img src="Bilder/puzzle.svg" class='scoreImg'>
+          <img src="Bilder/fairy-tale.svg" class='scoreImg'>
+          <img src="Bilder/strenght.svg" class='scoreImg'>
+
+        </div>
+        <div class="leftScorePane">
+          <li>Starshower</li>
+          <li>Orbitals</li>
+          <li>Orbitals</li>
+          <li>Gravity</li>
+          <li>Gravity</li>
+        </div>
+        <div class="leftScorePane">
+          <li id='starshower'>0000</li>
+          <li id='orbitals'>0000</li>
+          <li id='gravity'>0000</li>
+          <li id='snake'>0000</li>
+          <li id='bowser'>0000</li>
+        </div>
+
+      </ul>
       <div class="pane">
         <div class="header">
           <img src="Bilder/strenght.svg" alt="">
