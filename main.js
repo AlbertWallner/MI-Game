@@ -124,6 +124,7 @@
       isSomethingActive = true;
       $book.hide();
       $allPanes.hide();
+      $levelSelection.hide();
       $scoreBoard.show();
     }
     else {
@@ -131,6 +132,7 @@
       $scoreBoard.fadeOut(1000,function(){
         $book.fadeIn(1000);
         $allPanes.fadeIn(1000);
+        $levelSelection.fadeIn(1000);
       });
 
 
