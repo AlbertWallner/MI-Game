@@ -110,9 +110,9 @@
     });
   }
 
-  // $scoreDiv.click(function(){
-  //   console.log()
-  // })
+  $scoreDiv.click(function(){
+    
+  })
 
   //Fügt Sounds hinzu (in der Preload Funktion)
   function createSounds(){

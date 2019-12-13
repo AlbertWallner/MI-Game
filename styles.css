@@ -8,7 +8,7 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
-  
+
 }
 video{
   width: 100%;
@@ -73,6 +73,7 @@ li:active{
   width: 100%;
   height:90%;
   position: relative;
+  
 }
 #bookImage{
   width: 20%;
