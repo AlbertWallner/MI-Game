@@ -15,6 +15,7 @@
   let $scoreDiv = $levelSelection.next();
   let $listEl = $('li');
   $listEl.hide();
+
   //Variablen zur speicherung von den Positionen der Panes (Damit man diese am Ende wieder repositionieren kann)
   let currentLeft;
   let currentTop;
@@ -41,6 +42,7 @@
   //Zurück zur originallen Position und der Canvas verschwindet
   $levelSelection.click(function() {
     if (!isSomethingActive && started) {
+      $scoreDiv.fadeIn(1000);
       selectionSoundEnv.play();
       FahrStuhlMusik();
       level3HardResett();
@@ -84,12 +86,14 @@
       }
     }
     $allPanes.fadeIn(1000);
+    $scoreDiv.fadeIn(1000);
     addEventListenersToPanes();
   });
 
   function addEventListenersToPanes() {
     $allPanes.on('click', function(e) {
       if (!isSomethingActive) {
+        $scoreDiv.fadeOut(1000);
         selectionSoundEnv.play();
         FahrStuhlMusik();
         isSomethingActive = true;
@@ -120,13 +124,15 @@
       isSomethingActive = true;
       $book.hide();
       $allPanes.hide();
-      $scoreBoard.fadeIn(1000);
+      $scoreBoard.show();
     }
     else {
       isSomethingActive = false;
-      $scoreBoard.fadeOut(1000);
-      $book.fadeIn(1000);
-      $allPanes.fadeIn(1000);
+      $scoreBoard.fadeOut(1000,function(){
+        $book.fadeIn(1000);
+        $allPanes.fadeIn(1000);
+      });
+
 
     }
   })
@@ -169,6 +175,7 @@
   function setup(){
     $book.fadeIn(500);
     $listEl.fadeIn(500);
+    $scoreDiv.hide();
   }
 
   function FahrStuhlMusikStart(){
