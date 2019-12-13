@@ -6,6 +6,7 @@ function level1setup() {
   balls = [];
   pixelDensity(1);
   ellipseMode(RADIUS);
+  aroundTheFire.play();
 
   //Ball Objekte werden erstellt
   for (var i = 0; i < 100; i++) {

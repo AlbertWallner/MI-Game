@@ -24,7 +24,7 @@ function level2setup() {
   myColor = color('#5CECBF');
   pixelDensity(1);
   started = true;
-  
+
 }
 
 function level2draw() {
@@ -39,7 +39,7 @@ function level2draw() {
   checkForDeath();
 }
 
-function level3HardResett(){
+function level2HardResett(){
   song.stop();
   pyramidArray = [];
   pyramidTime = 16;

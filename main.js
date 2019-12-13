@@ -45,7 +45,7 @@
       $scoreDiv.fadeIn(1000);
       selectionSoundEnv.play();
       FahrStuhlMusik();
-      level3HardResett();
+      level2HardResett();
       addEventListenersToPanes();
       isSomethingActive = true;
       $myVideos.fadeIn(3000);
@@ -169,6 +169,7 @@
 
   function preload() {
     song = loadSound('Sounds/song.mp3');
+    aroundTheFire = loadSound('Sounds/aroundTheFire.mp3');
     fahrstuhlmusik = loadSound('Sounds/Fahrstuhl.mp3');
     createSounds();
 
