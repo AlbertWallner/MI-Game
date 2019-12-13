@@ -45,7 +45,7 @@
       $scoreDiv.fadeIn(1000);
       selectionSoundEnv.play();
       FahrStuhlMusik();
-      level2HardResett();
+      resetAllLevels();
       addEventListenersToPanes();
       isSomethingActive = true;
       $myVideos.fadeIn(3000);
@@ -251,4 +251,10 @@
           break;
       }
     }
+  }
+
+  function resetAllLevels(){
+    level1HardReset();
+    level2HardResett();
+
   }
