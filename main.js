@@ -35,6 +35,8 @@
   let $scoreBoard = $('#scoreBoard');
   $scoreBoard.hide();
 
+  let $gravityScore = $('#gravity');
+
   //Videos
   let $myVideos = $('video');
 
@@ -256,5 +258,10 @@
   function resetAllLevels(){
     level1HardReset();
     level2HardResett();
+  }
 
+  function updateScores(){
+    if (level1Score > $gravityScore.html()) {
+      $gravityScore.html(level1Score);
+    }
   }

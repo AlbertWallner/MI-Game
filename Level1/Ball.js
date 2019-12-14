@@ -1,24 +1,31 @@
-let paints = ['#222640', '#4EA6B0', '#F2CA80', '#F28B66', '#F26052'];
+function Ball() {
+  this.radius = random(8, 30);
+  this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
 
-function Ball(x, y, radius) {
-  this.pos = createVector(x, y);
-  this.vel = createVector(random(-3, 3), 3);
-  this.radius = radius;
+  //Diese while Schleife sorgt dafür,dass die Bälle nicht auf der Maus spawnen können
+  while (dist(this.pos.x, this.pos.y, mouseX, mouseY) < 60) {
+    this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
+  }
+
+  this.vel = createVector(random(-3, 3), 2);
   this.grav = 0;
-
-  this.color = paints[Math.round(Math.random(paints.length))];
 
   this.display = function() {
     fill('#FF1050');
     stroke('#4F031F');
     strokeWeight(5);
     ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
-    if (dist(mouseX, mouseY, this.pos.x, this.pos.y) <= this.radius) {
 
+    //Das passiert,wenn man getroffen wird
+    if (dist(mouseX, mouseY, this.pos.x, this.pos.y) <= this.radius) {
+      balls = [];
+      for (var i = 0; i < 10; i++) {
+        balls.push(new Ball());
+      }
+      aroundTheFire.stop();
     }
   }
   this.update = function() {
-
     this.pos.add(this.vel);
 
   }
@@ -26,8 +33,9 @@ function Ball(x, y, radius) {
   this.edges = function() {
     if (this.grav == 0) {
 
-      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius <= 0) {
+      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius +this.vel.y<= 0) {
         this.vel.y = -this.vel.y;
+
       } else {
         this.vel.y += 1;
       }
@@ -36,7 +44,7 @@ function Ball(x, y, radius) {
       }
     } else if (this.grav == 1) {
 
-      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius <= 0) {
+      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius +this.vel.y<= 0) {
         this.vel.y = -this.vel.y;
       }
 
@@ -62,17 +70,15 @@ function Ball(x, y, radius) {
       }
       if (this.pos.x + this.radius > width || this.pos.x - this.radius <= 0) {
         this.vel.x = -this.vel.x;
-      }else {
+      } else {
         this.vel.x -= 1;
       }
     }
 
   }
 
-  // TO DO: Make a new ball spawn every second or so
-
   this.changeDirection = function() {
-    this.grav ++;
+    this.grav++;
     if (this.grav == 4) {
       this.grav = 0;
     }

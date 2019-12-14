@@ -4,6 +4,8 @@ let s;
 let intervalActive;
 let level1BgColor;
 let warningColor;
+let level1Score;
+
 function level1setup() {
 
   let coiny = createCanvas(lwindowWidth, lwindowHeight);
@@ -21,25 +23,50 @@ function level1setup() {
     s = 1000;
     bgWarning();
   },10000)
+
   //Ball Objekte werden erstellt
   for (var i = 0; i < 10; i++) {
-    let radius = random(30);
-    let x = random(radius, width - radius);
-    let y = random(radius, height - radius);
-    balls.push(new Ball(x, y, radius));
+    balls.push(new Ball());
   }
-  started = true;
-}
-
-function level1draw(){
-
   background(level1BgColor);
-
   for (var i = 0; i < balls.length; i++) {
     balls[i].edges();
     balls[i].update();
     balls[i].display();
   }
+  started = true;
+}
+
+function level1draw(){
+  if (mouseX>0&&mouseY>0) {
+    if (!aroundTheFire.isPlaying()) {
+      aroundTheFire.play();
+    }
+    background(level1BgColor);
+    for (var i = 0; i < balls.length; i++) {
+      balls[i].edges();
+      balls[i].update();
+      balls[i].display();
+    }
+
+    if (frameCount % 500 == 0) {
+      let newBall = new Ball();
+      newBall.grav = balls[0].grav;
+      balls.push(newBall);
+    }
+    textAlign(LEFT, TOP);
+    textSize(30);
+    strokeWeight(2);
+    text('Score',10,10);
+    textSize(25);
+    text(round(aroundTheFire.currentTime()),10,50);
+    level1Score = round(aroundTheFire.currentTime());
+    updateScores();
+  }
+  else {
+    aroundTheFire.pause();
+  }
+
 
 }
 
@@ -48,6 +75,9 @@ function level1HardReset(){
   clearInterval(level1Interval);
 }
 
+
+//Der Hintergrund leuchtet in einem bestimmten Interval auf
+//(das soll als Warnung vor der Gravitationsänderung dienen)
 function bgWarning(){
   intervalActive = true;
   if (s > 0) {
