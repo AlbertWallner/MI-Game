@@ -30,6 +30,7 @@
   let gettingHitSound;
   let gettingHitEnv;
 
+  let midAir;
 
   //Scores
   let $scoreBoard = $('#scoreBoard');
@@ -173,6 +174,7 @@
     song = loadSound('Sounds/song.mp3');
     aroundTheFire = loadSound('Sounds/aroundTheFire.mp3');
     fahrstuhlmusik = loadSound('Sounds/Fahrstuhl.mp3');
+    midAir = loadSound('Sounds/MidAir.mp3');
     createSounds();
 
   }

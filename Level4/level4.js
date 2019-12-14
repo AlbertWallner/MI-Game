@@ -7,12 +7,14 @@ let Level4BallInnerColor;
 //Alpha Wert der Schrift (Score)
 let level4FontAlpha = 0;
 
+let lvl4ScoreText;
+
 function level4setup(){
   let coiny = createCanvas(lwindowWidth, lwindowHeight);
   coiny.parent(thisPane.find('.window').attr('id'));
   pixelDensity(1);
   //Koordinaten vom Text werden zentriert
-  textAlign(CENTER,TOP);
+  textAlign(CENTER,CENTER);
   //Innere Farbe festlegen
   Level4BallInnerColor = color(254,16,80);
   Level4BallInnerColor.setAlpha(10);
@@ -24,21 +26,33 @@ function level4setup(){
   thisTime = millis();
   started = true;
   ellipseMode(CENTER);
+
+  lvl4ScoreText = new Text('Score',width/2,height/9);
+  lvl4ScoreValue = new Text(0,width/2,height/6);
+  textSize(45);
+  midAir.play();
 }
 
 function level4draw(){
-  //Text Alpha wird immer erhöht
-  level4FontAlpha+=0.1;
+
   //Dunkler Hintergrund
   background(25);
 
-  fill(Level4BallInnerColor);
-  Level4BallInnerColor.setAlpha(level4FontAlpha);
-  textSize(45);
-  strokeWeight(2);
-  text('Score',width/2,0);
-  textSize(25);
-  text(round(millis()/100),width/2,40);
+  if (midAir.currentTime()>20) {
+    lvl4ScoreText.applyForce();
+    lvl4ScoreText.update();
+  }
+
+  if (midAir.currentTime()> 30) {
+    lvl4ScoreValue.applyForce();
+    lvl4ScoreValue.update();
+  }
+
+  lvl4ScoreText.display();
+  lvl4ScoreValue.display();
+  lvl4ScoreText.checkForDeath();
+  lvl4ScoreValue.checkForDeath();
+
 
   for (var i = 0; i < Level4BallArray.length; i++) {
     Level4BallArray[i].getAttraction(Level4BallArray);

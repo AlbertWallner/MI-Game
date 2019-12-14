@@ -32,7 +32,7 @@ function Level4Ball(){
     }
 
     this.pos.add(this.vel);
-    this.acc.mult(0);
+    this.acc.setMag(0);
   }
   this.applyForce = function(force){
     let f = force.copy();
@@ -61,7 +61,7 @@ function Level4Ball(){
   }
   //Prüft,ob die Maus über einem Ball ist (wenn man getroffen wurde)
   this.isDead = function(){
-    
+
     if (dist(this.pos.x,this.pos.y,mouseX,mouseY)<=this.radius/2) {
       return true;
 
