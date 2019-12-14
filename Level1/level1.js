@@ -22,7 +22,7 @@ function level1setup() {
     bgWarning();
   },10000)
   //Ball Objekte werden erstellt
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 10; i++) {
     let radius = random(30);
     let x = random(radius, width - radius);
     let y = random(radius, height - radius);
