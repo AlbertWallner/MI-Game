@@ -16,6 +16,10 @@
   let $listEl = $('li');
   $listEl.hide();
 
+  //Key Images
+  let WkeyImage;
+  let SkeyImage;
+
   //Variablen zur speicherung von den Positionen der Panes (Damit man diese am Ende wieder repositionieren kann)
   let currentLeft;
   let currentTop;
@@ -31,6 +35,7 @@
   let gettingHitEnv;
 
   let midAir;
+  let sparkSong;
 
   //Scores
   let $scoreBoard = $('#scoreBoard');
@@ -181,7 +186,11 @@
     aroundTheFire = loadSound('Sounds/aroundTheFire.mp3');
     fahrstuhlmusik = loadSound('Sounds/Fahrstuhl.mp3');
     midAir = loadSound('Sounds/MidAir.mp3');
+    sparkSong = loadSound('Sounds/sparkSong.mp3')
     createSounds();
+
+    WkeyImage = loadImage('Bilder/Wkey.svg');
+    SkeyImage = loadImage('Bilder/Skey.svg');
 
   }
 
