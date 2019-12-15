@@ -8,6 +8,7 @@ let Level4BallInnerColor;
 let level4FontAlpha = 0;
 
 let lvl4ScoreText;
+let level4Score = 0;
 
 function level4setup() {
   let coiny = createCanvas(lwindowWidth, lwindowHeight);
@@ -37,39 +38,70 @@ function level4draw() {
 
   //Dunkler Hintergrund
   background(25);
+  if (mouseX > 0 && mouseY > 0) {
+    level4Score = round(midAir.currentTime());
+    updateScores();
+    if (!midAir.isPlaying()) {
+      midAir.play();
+    }
 
-  if (midAir.currentTime() > 20) {
-    lvl4ScoreText.applyForce();
-    lvl4ScoreText.update();
-  }
+    if (midAir.currentTime() > 20) {
+      lvl4ScoreText.applyForce();
+      lvl4ScoreText.update();
+    }
 
-  if (midAir.currentTime() > 30) {
-    lvl4ScoreValue.applyForce();
-    lvl4ScoreValue.update();
-  }
+    if (midAir.currentTime() > 30) {
+      lvl4ScoreValue.applyForce();
+      lvl4ScoreValue.update();
+    }
 
-  lvl4ScoreText.display();
-  lvl4ScoreValue.display();
-  lvl4ScoreText.checkForDeath();
-  lvl4ScoreValue.checkForDeath();
-
-
-  for (var i = 0; i < Level4BallArray.length; i++) {
-    Level4BallArray[i].getAttraction(Level4BallArray);
-    Level4BallArray[i].applyMouseForce();
-    Level4BallArray[i].update();
-    Level4BallArray[i].display();
-    if (Level4BallArray[i].isDead()) {
+    lvl4ScoreText.display();
+    lvl4ScoreValue.display();
+    if (lvl4ScoreText.checkForDeath() || lvl4ScoreValue.checkForDeath()) {
+      lvl4ScoreText = new Text('Score', width / 2, height / 9);
+      lvl4ScoreValue = new Text(0, width / 2, height / 6);
       Level4BallArray = [];
       for (var i = 0; i < 5; i++) {
         Level4BallArray.push(new Level4Ball());
       }
       thisTime = millis();
+    }
 
+    for (var i = 0; i < Level4BallArray.length; i++) {
+      Level4BallArray[i].getAttraction(Level4BallArray);
+      Level4BallArray[i].applyMouseForce();
+      Level4BallArray[i].update();
+      Level4BallArray[i].display();
+      if (Level4BallArray[i].isDead()) {
+        Level4BallArray = [];
+        for (var i = 0; i < 5; i++) {
+          Level4BallArray.push(new Level4Ball());
+        }
+        thisTime = millis();
+        midAir.stop();
+        lvl4ScoreText = new Text('Score', width / 2, height / 9);
+        lvl4ScoreValue = new Text(0, width / 2, height / 6);
+      }
+    }
+    if (millis() - thisTime >= 2000) {
+      Level4BallArray.push(new Level4Ball());
+      thisTime = millis();
+    }
+  } else {
+    midAir.pause();
+    lvl4ScoreText.display();
+    lvl4ScoreValue.display();
+    for (var i = 0; i < Level4BallArray.length; i++) {
+      Level4BallArray[i].display();
     }
   }
-  if (millis() - thisTime >= 2000) {
+
+}
+
+function level4HardReset() {
+  midAir.stop();
+  Level4BallArray = [];
+  for (var i = 0; i < 5; i++) {
     Level4BallArray.push(new Level4Ball());
-    thisTime = millis();
   }
 }

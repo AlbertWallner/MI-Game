@@ -24,7 +24,7 @@ function level2setup() {
   myColor = color('#5CECBF');
   pixelDensity(1);
   started = true;
-
+  textAlign(CENTER, TOP);
 }
 
 function level2draw() {
@@ -39,7 +39,7 @@ function level2draw() {
   checkForDeath();
 }
 
-function level2HardResett(){
+function level2HardReset() {
   song.stop();
   pyramidArray = [];
   pyramidTime = 16;
@@ -192,22 +192,22 @@ function displayPyramid() {
 
 function checkForDeath() {
 
-    loadPixels();
-    let x = mouseX;
-    let y = round(mouseY);
+  loadPixels();
+  let x = mouseX;
+  let y = round(mouseY);
 
-    let off =(y * width + x)* 4;
+  let off = (y * width + x) * 4;
 
-    let components = [
-      pixels[off],
-      pixels[off + 1],
-      pixels[off + 2],
-      pixels[off + 3]
-    ];
+  let components = [
+    pixels[off],
+    pixels[off + 1],
+    pixels[off + 2],
+    pixels[off + 3]
+  ];
 
-    if (pixels[off]==255 && pixels[off+1]==16 && pixels[off+2]==80) {
-      gettingHitEnv.play();
-    }
-    updatePixels();
+  if (pixels[off] == 255 && pixels[off + 1] == 16 && pixels[off + 2] == 80) {
+    gettingHitEnv.play();
+  }
+  updatePixels();
 
 }

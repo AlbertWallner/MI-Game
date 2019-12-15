@@ -37,6 +37,7 @@
   $scoreBoard.hide();
 
   let $gravityScore = $('#gravity');
+  let $oribtalScore = $('#orbitals');
 
   //Videos
   let $myVideos = $('video');
@@ -122,17 +123,16 @@
     });
   }
 
-  $scoreDiv.click(function(){
+  $scoreDiv.click(function() {
     if (!isSomethingActive) {
       isSomethingActive = true;
       $book.hide();
       $allPanes.hide();
       $levelSelection.hide();
       $scoreBoard.show();
-    }
-    else {
+    } else {
       isSomethingActive = false;
-      $scoreBoard.fadeOut(1000,function(){
+      $scoreBoard.fadeOut(1000, function() {
         $book.fadeIn(1000);
         $allPanes.fadeIn(1000);
         $levelSelection.fadeIn(1000);
@@ -143,13 +143,13 @@
   })
 
   //Fügt Sounds hinzu (in der Preload Funktion)
-  function createSounds(){
+  function createSounds() {
     //Sounds
     selectionSound = new p5.Oscillator();
     selectionSoundEnv = new p5.Envelope();
 
-    selectionSoundEnv.setADSR(0,0.2,0.2,1.1);
-    selectionSoundEnv.setRange(0.4,0.0);
+    selectionSoundEnv.setADSR(0, 0.2, 0.2, 1.1);
+    selectionSoundEnv.setRange(0.4, 0.0);
     selectionSoundEnv.mult(0.5);
 
     selectionSound.setType('sawtooth');
@@ -160,8 +160,8 @@
     gettingHitSound = new p5.Oscillator();
     gettingHitEnv = new p5.Envelope();
 
-    gettingHitEnv.setADSR(0,0,0.8,0.4);
-    gettingHitEnv.setRange(0.8,0.0);
+    gettingHitEnv.setADSR(0, 0, 0.8, 0.4);
+    gettingHitEnv.setRange(0.8, 0.0);
     gettingHitEnv.mult(0.5);
 
     gettingHitSound.setType('square');
@@ -179,28 +179,26 @@
 
   }
 
-  function setup(){
+  function setup() {
     $book.fadeIn(500);
     $listEl.fadeIn(500);
     $scoreDiv.hide();
   }
 
-  function FahrStuhlMusikStart(){
+  function FahrStuhlMusikStart() {
     fahrstuhlmusik.setVolume(0.8);
     if (fahrstuhlmusik.isPlaying()) {
       fahrstuhlmusik.stop();
-    }
-    else {
+    } else {
       fahrstuhlmusik.play();
     }
   }
 
   //Fahrstuhlmusik!
-  function FahrStuhlMusik(){
+  function FahrStuhlMusik() {
     if (fahrstuhlmusik.isPlaying()) {
       fahrstuhlmusik.stop();
-    }
-    else {
+    } else {
       fahrstuhlmusik.play();
     }
 
@@ -257,13 +255,18 @@
     }
   }
 
-  function resetAllLevels(){
+  function resetAllLevels() {
     level1HardReset();
-    level2HardResett();
+    level2HardReset();
+
+    level4HardReset();
   }
 
-  function updateScores(){
+  function updateScores() {
     if (level1Score > $gravityScore.html()) {
       $gravityScore.html(level1Score);
+    }
+    if (level4Score > $oribtalScore.html()) {
+      $oribtalScore.html(level4Score);
     }
   }
