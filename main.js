@@ -38,6 +38,7 @@
 
   let $gravityScore = $('#gravity');
   let $oribtalScore = $('#orbitals');
+  let $starshowerScore = $('#starshower');
 
   //Videos
   let $myVideos = $('video');
@@ -46,7 +47,6 @@
   //Zurück zur originallen Position und der Canvas verschwindet
   $levelSelection.click(function() {
     if (!isSomethingActive && started) {
-      $scoreDiv.fadeIn(1000);
       selectionSoundEnv.play();
       FahrStuhlMusik();
       resetAllLevels();
@@ -66,6 +66,7 @@
         lwindowHeight = $('#window').height();
         $('.pane').not(thisPane).fadeIn(1000);
         $book.fadeIn(1000);
+        $scoreDiv.fadeIn(1000);
         isSomethingActive = false;
       });
       fullscreen(false);
@@ -130,12 +131,17 @@
       $allPanes.hide();
       $levelSelection.hide();
       $scoreBoard.show();
+      $scoreDiv.html('Level Selection');
     } else {
+
+      $scoreDiv.hide();
+      $scoreDiv.html('Scores');
       isSomethingActive = false;
       $scoreBoard.fadeOut(1000, function() {
         $book.fadeIn(1000);
         $allPanes.fadeIn(1000);
         $levelSelection.fadeIn(1000);
+        $scoreDiv.fadeIn(1000);
       });
 
 
@@ -268,5 +274,8 @@
     }
     if (level4Score > $oribtalScore.html()) {
       $oribtalScore.html(level4Score);
+    }
+    if (level2Score > $starshowerScore.html()) {
+      $starshowerScore.html(level2Score);
     }
   }

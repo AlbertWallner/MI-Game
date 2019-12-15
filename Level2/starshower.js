@@ -12,6 +12,7 @@ let fontSizeValue;
 let fontAlpha;
 let myColor;
 let canBeKilled = false;
+let level2Score = 0;
 
 function level2setup() {
   let coiny = createCanvas(lwindowWidth, lwindowHeight);
@@ -28,15 +29,25 @@ function level2setup() {
 }
 
 function level2draw() {
-  createGravityAndTimer();
+  level2Score = round(song.currentTime());
+  updateScores();
   background(15, 15, 25);
+  if (mouseX > -2 && mouseY > 0) {
+    if (!song.isPlaying()) {
+      song.play();
+    }
+    createGravityAndTimer();
+    createStar();
+    createPyramid();
+    growPyramid();
+    checkForDeath();
+  } else {
+    song.pause();
+  }
   drawScore();
-  createStar();
-  createPyramid();
-  growPyramid();
   displayPyramid();
   drawStars();
-  checkForDeath();
+
 }
 
 function level2HardReset() {
