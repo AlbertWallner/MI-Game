@@ -24,7 +24,7 @@ function level2setup() {
   myColor = color('#5CECBF');
   pixelDensity(1);
   started = true;
-  textAlign(CENTER, TOP);
+  textAlign(CENTER, CENTER);
 }
 
 function level2draw() {
@@ -78,13 +78,13 @@ function drawScore() {
   }
 
   fill(myColor);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   if (song.currentTime() > 123.0715) {
     textSize(copiedValue + (amp.getLevel() * 100));
   } else {
     textSize(fontSizeValue);
   }
-  translate(width / 2, height / 2);
+  translate(width / 2, height / 3);
   text('Score', 0, 0);
   if (song.currentTime() > 123.0715) {
     translate(0, copiedValue + (amp.getLevel() * 100));

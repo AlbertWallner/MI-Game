@@ -19,10 +19,10 @@ function level1setup() {
   aroundTheFire.play();
   s = 1000;
   intervalActive = false;
-  level1Interval = setInterval(function(){
+  level1Interval = setInterval(function() {
     s = 1000;
     bgWarning();
-  },10000)
+  }, 10000)
 
   //Ball Objekte werden erstellt
   for (var i = 0; i < 10; i++) {
@@ -37,8 +37,8 @@ function level1setup() {
   started = true;
 }
 
-function level1draw(){
-  if (mouseX>0&&mouseY>0) {
+function level1draw() {
+  if (mouseX > -3 && mouseY > 0) {
     if (!aroundTheFire.isPlaying()) {
       aroundTheFire.play();
     }
@@ -57,20 +57,19 @@ function level1draw(){
     textAlign(LEFT, TOP);
     textSize(30);
     strokeWeight(2);
-    text('Score',10,10);
+    text('Score', 10, 10);
     textSize(25);
-    text(round(aroundTheFire.currentTime()),10,50);
+    text(round(aroundTheFire.currentTime()), 10, 50);
     level1Score = round(aroundTheFire.currentTime());
     updateScores();
-  }
-  else {
+  } else {
     aroundTheFire.pause();
   }
 
 
 }
 
-function level1HardReset(){
+function level1HardReset() {
   aroundTheFire.stop();
   clearInterval(level1Interval);
 }
@@ -78,27 +77,25 @@ function level1HardReset(){
 
 //Der Hintergrund leuchtet in einem bestimmten Interval auf
 //(das soll als Warnung vor der Gravitationsänderung dienen)
-function bgWarning(){
+function bgWarning() {
   intervalActive = true;
   if (s > 0) {
     level1BgColor = warningColor;
-    setTimeout(function(){
+    setTimeout(function() {
       level1BgColor = 20;
-    },30);
-    if (s>100) {
+    }, 30);
+    if (s > 100) {
       s -= 100;
-    }
-    else {
+    } else {
       s -= 20;
     }
-    setTimeout(bgWarning,s);
-  }
-  else {
+    setTimeout(bgWarning, s);
+  } else {
     changeGravity();
   }
 }
 
-function changeGravity(){
+function changeGravity() {
   for (var i = 0; i < balls.length; i++) {
     balls[i].changeDirection();
   }

@@ -53,9 +53,12 @@ Text.prototype.display = function() {
   pop();
 };
 Text.prototype.checkForDeath = function() {
-  if (dist(this.pos.x, this.pos.y, mouseX, mouseY) <= textWidth(this.text) / 2) {
+  if (dist(this.pos.x, this.pos.y, mouseX, mouseY) <= textWidth(this.text) / 2 && midAir.currentTime() > 1) {
     this.rotationAcc = 0;
-    midAir.stop();
+    while (midAir.isPlaying()) {
+      midAir.stop();
+    }
+
     return true;
   }
 }

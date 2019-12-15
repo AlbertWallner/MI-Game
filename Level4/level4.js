@@ -72,13 +72,16 @@ function level4draw() {
       Level4BallArray[i].applyMouseForce();
       Level4BallArray[i].update();
       Level4BallArray[i].display();
-      if (Level4BallArray[i].isDead()) {
+      if (Level4BallArray[i].isDead() && midAir.currentTime() > 1) {
         Level4BallArray = [];
         for (var i = 0; i < 5; i++) {
           Level4BallArray.push(new Level4Ball());
         }
         thisTime = millis();
-        midAir.stop();
+        while (midAir.isPlaying()) {
+
+          midAir.stop();
+        }
         lvl4ScoreText = new Text('Score', width / 2, height / 9);
         lvl4ScoreValue = new Text(0, width / 2, height / 6);
       }
@@ -99,7 +102,9 @@ function level4draw() {
 }
 
 function level4HardReset() {
-  midAir.stop();
+  while (midAir.isPlaying()) {
+    midAir.stop();
+  }
   Level4BallArray = [];
   for (var i = 0; i < 5; i++) {
     Level4BallArray.push(new Level4Ball());

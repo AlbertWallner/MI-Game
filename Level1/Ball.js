@@ -17,7 +17,7 @@ function Ball() {
     ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
 
     //Das passiert,wenn man getroffen wird
-    if (dist(mouseX, mouseY, this.pos.x, this.pos.y) <= this.radius) {
+    if (dist(mouseX, mouseY, this.pos.x, this.pos.y) <= this.radius && aroundTheFire.currentTime() > 1) {
       balls = [];
       for (var i = 0; i < 10; i++) {
         balls.push(new Ball());
@@ -33,7 +33,7 @@ function Ball() {
   this.edges = function() {
     if (this.grav == 0) {
 
-      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius +this.vel.y<= 0) {
+      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius + this.vel.y <= 0) {
         this.vel.y = -this.vel.y;
 
       } else {
@@ -44,7 +44,7 @@ function Ball() {
       }
     } else if (this.grav == 1) {
 
-      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius +this.vel.y<= 0) {
+      if (this.pos.y + this.radius + this.vel.y >= height || this.pos.y - this.radius + this.vel.y <= 0) {
         this.vel.y = -this.vel.y;
       }
 
