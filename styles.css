@@ -1,83 +1,95 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
-:root{
+
+:root {
   --main-border-radius: 20px;
   --main-text-color: #5D647F;
 }
-body{
-  font-family: 'Roboto', sans-serif;
 
+body {
+  font-family: 'Roboto', sans-serif;
 }
-video{
+
+video {
   width: 100%;
   height: 100%;
 }
-video:hover{
+
+video:hover {
   cursor: pointer;
 }
-#survival video{
+
+#survival video {
   width: 100%;
   height: 132%;
-
 }
+
 @keyframes bookHover {
-  from{
+  from {
     transform: translateY(0px);
   }
-  to{
+
+  to {
     transform: translateY(-50px);
   }
 }
+
 @keyframes bookHoverMouse {
-  from{
+  from {
     transform: rotateZ(0deg) scale(1);
   }
-  to{
+
+  to {
     transform: rotateZ(360deg) scale(0.5);
   }
 }
-.page{
+
+.page {
   width: 100vw;
   height: 100vh;
 }
-ul#navs{
-  display:flex;
+
+ul#navs {
+  display: flex;
   flex-direction: row;
   list-style-type: none;
   background-color: #FFEBB7;
   justify-content: center;
   align-items: center;
   color: #5D647F;
-
   height: 10%;
 }
 
-.navsLi{
+.navsLi {
   padding: 1% 5%;
   border: 1px solid grey;
   box-shadow: 0 0 1px 0px;
   border-radius: 0px;
   margin: 0px 20px;
 }
-.navsLi:hover{
+
+.navsLi:hover {
   box-shadow: 0 0 5px;
   transform: scale(0.98);
   cursor: pointer;
 }
-.navsLi:active{
+
+.navsLi:active {
   transform: scale(0.9);
 }
-.mainContainer{
+
+.mainContainer {
   width: 100%;
-  height:90%;
+  height: 90%;
   position: relative;
 }
-#scoreBoard{
+
+#scoreBoard {
   position: absolute;
-  display:flex;
+  display: flex;
   width: 33%;
   height: 90%;
   background-color: #FFEBB7;
@@ -87,10 +99,12 @@ ul#navs{
   list-style-type: none;
   border: 1px solid grey;
 }
-#scoreBoard:hover{
-  box-shadow: 0 0 5px ;
+
+#scoreBoard:hover {
+  box-shadow: 0 0 5px;
 }
-.scoreImagesPane{
+
+.scoreImagesPane {
   width: 25%;
   height: 100%;
   display: flex;
@@ -98,7 +112,8 @@ ul#navs{
   justify-content: space-around;
   align-items: center
 }
-.leftScorePane{
+
+.leftScorePane {
   width: 40%;
   height: 100%;
   display: flex;
@@ -108,7 +123,8 @@ ul#navs{
   font-weight: bold;
   color: var(--main-text-color);
 }
-.leftScorePane:last-of-type{
+
+.leftScorePane:last-of-type {
   width: 40%;
   height: 100%;
   display: flex;
@@ -119,25 +135,25 @@ ul#navs{
   color: var(--main-text-color);
 }
 
-.scoreImg{
+.scoreImg {
   width: 30%;
-  height:10%;
+  height: 10%;
 }
-#bookImage{
+
+#bookImage {
   width: 20%;
   margin: auto;
   display: block;
-  position:relative;
+  position: relative;
   top: 40vh;
-
   animation-name: bookHover;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
-
 }
-#bookImage:hover{
+
+#bookImage:hover {
   animation-name: bookHoverMouse;
   animation-duration: 1s;
   animation-direction: normal;
@@ -146,62 +162,66 @@ ul#navs{
   animation-fill-mode: both;
   cursor: pointer;
 }
-.pane{
+
+.pane {
   /*
   max-width: 700px;
   max-height: 700px;
   */
   position: absolute;
   left: 40vw;
-  top:40vh;
+  top: 40vh;
   border: 1px solid grey;
   width: 20vw;
-  display:flex;
+  display: flex;
   flex-direction: column;
   border-radius: 0px;
   height: 30vh;
   box-shadow: 0 0 1px 0px;
 }
-.pane:hover{
 
+.pane:hover {
   box-shadow: 0 0 7px #00BFFF;
 }
 
-.header{
+.header {
   height: 5vh;
-  color:#5D7A98;
+  color: #5D7A98;
   font-size: 18px;
-  background-color: #FFD788;
-  width:100%;
+  background-color: #FFEBB7;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-#game1{
+#game1 {
   left: 8%;
   top: 60%;
 }
-#game2{
+
+#game2 {
   left: 15%;
   top: 10%;
 }
-#game3{
+
+#game3 {
   left: 65%;
   top: 10%;
 }
-#game4{
+
+#game4 {
   left: 72%;
   top: 60%;
 }
 
-.window{
-  height:100%;
-  width:100%;
+.window {
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
-.pane img{
+
+.pane img {
   height: 90%;
   margin-right: 5%;
 }
