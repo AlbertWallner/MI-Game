@@ -8,7 +8,7 @@ function Platform(x, y, w, h) {
 
   //Zeichnet die Platform
   this.display = function() {
-    
+
     fill(255, this.color, this.color);
     stroke(0);
     strokeWeight(1);
@@ -18,22 +18,22 @@ function Platform(x, y, w, h) {
   //Ändert die Werte der Platform (macht sie roter)
   this.update = function() {
     if (gameActive) {
-      this.color -= 0.5;
+      this.color -= 0.2;
     }
 
     //Nach 20 Sekunden schrumpft die Platform
-    if (millis()-platformTimer>=20000) {
+    if (millis() - platformTimer >= 20000) {
       this.width -= 4;
-      this.x+=2;
+      this.x += 2;
       if (this.width <= 300) {
         platformTimer = millis();
       }
     }
     if (this.width < width) {
-      this.width +=2;
+      this.width += 2;
     }
     if (this.x > 0) {
-      this.x -=1;
+      this.x -= 1;
     }
 
     //Durch drücken von "W" oder "S" macht man die Platform "weniger rot" und verschiebt sie

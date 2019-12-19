@@ -26,8 +26,6 @@ function level3setup() {
 //Passiert immer und immer wieder während das Programm läuft
 function level3draw() {
 
-
-
   background(backgroundC);
 
   platform1.update();
