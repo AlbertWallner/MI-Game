@@ -5,10 +5,10 @@ function Platform(x, y, w, h) {
   this.width = w;
   this.height = h;
   this.color = 255;
+  this.timer = 20;
 
   //Zeichnet die Platform
   this.display = function() {
-
     fill(255, this.color, this.color);
     stroke(0);
     strokeWeight(1);
@@ -18,15 +18,16 @@ function Platform(x, y, w, h) {
   //Ändert die Werte der Platform (macht sie roter)
   this.update = function() {
     if (gameActive) {
-      this.color -= 0.2;
+      this.color -= 0.3;
     }
 
     //Nach 20 Sekunden schrumpft die Platform
-    if (millis() - platformTimer >= 20000) {
+    if (sparkSong.currentTime() % this.timer == 0 && sparkSong.currentTime() > 0) {
+      console.log('true');
       this.width -= 4;
       this.x += 2;
       if (this.width <= 300) {
-        platformTimer = millis();
+        this.timer += 20;
       }
     }
     if (this.width < width) {
@@ -46,4 +47,5 @@ function Platform(x, y, w, h) {
       this.color += 1;
     }
   }
+  this.isDead = () => mouseX > this.width + this.x || this.color <= 0 || mouseX < this.x || mouseY > this.height + this.y || mouseY < this.y;
 }

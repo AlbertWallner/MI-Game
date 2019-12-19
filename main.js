@@ -273,7 +273,7 @@
   function resetAllLevels() {
     level1HardReset();
     level2HardReset();
-
+    level3HardReset();
     level4HardReset();
   }
 

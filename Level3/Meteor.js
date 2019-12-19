@@ -1,5 +1,5 @@
 //Ball Konstruktor
-function BallN() {
+function Meteor() {
 
   //Zufällige Attribute
   this.radius = random(10, 20);
@@ -18,7 +18,7 @@ function BallN() {
   //Der Ball zeichnet sich selbst
   this.show = function() {
     fill(255, 0, 0);
-    noStroke();
+    stroke(0);
     strokeWeight(1);
     ellipse(this.pos.x, this.pos.y, this.radius, this.radius)
   }
@@ -58,4 +58,6 @@ function BallN() {
     this.vel.setMag(mag);
   };
 
+  //Diese Funktion überprüft,ob man innerhalb des Kreises ist.Wenn ja,dann verliert man.
+  this.isDead = () => dist(this.pos.x, this.pos.y, mouseX, mouseY) < this.radius;
 }
