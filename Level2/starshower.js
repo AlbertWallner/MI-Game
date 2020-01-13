@@ -31,7 +31,7 @@ function level2setup() {
 function level2draw() {
   level2Score = round(song.currentTime());
   updateScores();
-  background(15, 15, 25);
+  background(0);
   if (mouseX > -2 && mouseY > 0) {
     if (!song.isPlaying()) {
       song.play();
@@ -40,14 +40,14 @@ function level2draw() {
     createStar();
     createPyramid();
     growPyramid();
-    checkForDeath();
+
   } else {
     song.pause();
   }
   drawScore();
   displayPyramid();
   drawStars();
-
+  checkForDeath();
 }
 
 function level2HardReset() {
@@ -56,6 +56,13 @@ function level2HardReset() {
   pyramidTime = 16;
   secondTimer = 0;
   myStars = [];
+  fontSizeValue = 20;
+  fontAlpha = 0;
+  noLoop();
+  setTimeout(function() {
+    loop();
+  }, 10);
+
 }
 
 //Function which draws and updates the score
@@ -161,7 +168,6 @@ function drawStars() {
 
 //Makes a new pyramid about every now and then
 function createPyramid() {
-  print(song.currentTime());
   if (song.currentTime() - pyramidTime > 4 - amp.getLevel() * 1.5) {
     pyramidArray.push(new Pyramid());
 
@@ -217,7 +223,8 @@ function checkForDeath() {
   ];
 
   if (pixels[off] == 255 && pixels[off + 1] == 16 && pixels[off + 2] == 80) {
-    gettingHitEnv.play();
+    print('test');
+    level2HardReset();
   }
   updatePixels();
 

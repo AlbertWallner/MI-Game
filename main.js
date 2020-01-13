@@ -43,6 +43,7 @@
 
   let $gravityScore = $('#gravity');
   let $oribtalScore = $('#orbitals');
+  let $platformScore = $('#platform');
   let $starshowerScore = $('#starshower');
 
   //Videos
@@ -283,6 +284,9 @@
     }
     if (level4Score > $oribtalScore.html()) {
       $oribtalScore.html(level4Score);
+    }
+    if (level3Score > $platformScore.html()) {
+      $platformScore.html(level3Score);
     }
     if (level2Score > $starshowerScore.html()) {
       $starshowerScore.html(level2Score);

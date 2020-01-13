@@ -5,6 +5,7 @@ let gameActive = false;
 let gameStartTime;
 let timerActive = true;
 let platformTimer;
+let level3Score;
 
 //Erstelle Objekte
 let platform1;
@@ -40,6 +41,9 @@ function level3draw() {
     if (!sparkSong.isPlaying()) {
       sparkSong.play();
     }
+
+    level3Score = round(sparkSong.currentTime());
+    updateScores();
 
     //Timer resetten
     if (timerActive) {
@@ -118,7 +122,10 @@ function displayKeys() {
 
 let level3HardReset = () => {
   meteorArray = [];
-  platform1.color = 255;
+  if (platform1) {
+    platform1.color = 255;
+  }
+
   gameActive = false;
   platform1 = new Platform(0, height / 2, width, 100);
   sparkSong.stop();

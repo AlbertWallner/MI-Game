@@ -15,7 +15,7 @@ function level1setup() {
   ellipseMode(RADIUS);
   warningColor = color('#FF1050');
   warningColor.setAlpha(120);
-  level1BgColor = 20;
+  level1BgColor = 0;
   aroundTheFire.play();
   s = 1000;
   intervalActive = false;
@@ -82,7 +82,7 @@ function bgWarning() {
   if (s > 0) {
     level1BgColor = warningColor;
     setTimeout(function() {
-      level1BgColor = 20;
+      level1BgColor = 0;
     }, 30);
     if (s > 100) {
       s -= 100;

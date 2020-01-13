@@ -37,7 +37,7 @@ function level4setup() {
 function level4draw() {
 
   //Dunkler Hintergrund
-  background(25);
+  background(0);
   if (mouseX > 0 && mouseY > 0) {
     level4Score = round(midAir.currentTime());
     updateScores();
